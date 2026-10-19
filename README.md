@@ -231,7 +231,7 @@ The real-data demo (`mistral_7b_gsm8k_demo/`) exercises the full v1.1 protocol â
 
 ## Spec
 
-Full format specification: [`spec/attestation_format_v1.md`](spec/attestation_format_v1.md), with the current Merkle construction in [`spec/attestation_format_v2.md`](spec/attestation_format_v2.md) and what a conforming implementation must do in [`spec/conformance.md`](spec/conformance.md).
+Full format specification: [`spec/attestation_format_v1.md`](spec/attestation_format_v1.md), with the current Merkle construction in [`spec/attestation_format_v2.md`](spec/attestation_format_v2.md) and what a conforming implementation must do in [`spec/conformance.md`](spec/conformance.md). Platforms that store only an aggregate score per run: see [`spec/aggregate-only-platforms.md`](spec/aggregate-only-platforms.md).
 
 The v1 spec covers: bundle schema, canonical encoding rules, pre-rounding policy, Merkle tree construction, proof format and verifier algorithm, versioning policy, adapter interface, security considerations.
 
