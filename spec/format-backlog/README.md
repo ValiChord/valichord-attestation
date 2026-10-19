@@ -68,7 +68,7 @@ say so explicitly rather than let absence read as agreement.
 
 ## Also raised, not yet numbered
 
-- **Dataset snapshot and row identity** (Seekers2001, `future-agi#1368`, 2026-08-16) — which
+- **Dataset snapshot and row identity** (qshanx, then named Seekers2001; `future-agi#1368`, 2026-08-16) — which
   rows a run covered, so two runs over "the same" dataset are comparable. Overlaps 01 in spirit;
   may deserve its own item.
 - **Leaf-source identity** (Hawthorn, `future-agi#1368`, 2026-08-17) — where per-sample results
@@ -93,9 +93,15 @@ say so explicitly rather than let absence read as agreement.
   ⚠️ Their materials are under the Kantara IPR policy, not an open-content licence: read for
   ideas, do not copy text or adopt their field names wholesale.
 
-## Standing offer
+## Standing offer: lapsed (checked 2026-10-19)
 
-KeilerHirsch (BRONCO) has offered to specify the measurement layer and to treat this format as a
+> **Update 2026-10-19.** The BRONCO repository (`KeilerHirsch-Labs/BRONCO-AI-Metrology-Benchmarks-DIN-ISO-IEC`)
+> returns 404 and appears to have been gone since September. No crosswalk was delivered, and
+> KeilerHirsch's last comment on `lm-evaluation-harness#3749` was 2026-08-20. So the reason given
+> below for not designing 01–07 here no longer holds. **Whether to design any of them now is an
+> open decision, not implied by this note.** The original text follows.
+
+KeilerHirsch (BRONCO) had offered to specify the measurement layer and to treat this format as a
 compatibility target rather than fork it. If that work lands here as optional fields, the
 projects are compatible by construction rather than by negotiation. That is the preferred route
 for 01–07 and the reason none of them is being designed unilaterally yet.
