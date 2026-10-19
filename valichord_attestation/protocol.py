@@ -2,8 +2,17 @@
 
 This module is **client-side only**. It adds no entry types, changes no integrity
 zome, and puts no bundle content on any DHT. See
-``docs/PROTOCOL_INTEGRATION_BOUNDARY.md`` for the four preconditions it is built
+``docs/PROTOCOL_INTEGRATION_BOUNDARY.md`` in the ValiChord repository
+(https://github.com/ValiChord/ValiChord) for the four preconditions it is built
 under; every function here exists to satisfy one of them.
+
+.. warning::
+   **Cross-repository contract (since the 2026-10-19 split).** This module predicts
+   a hash the ValiChord protocol produces (``compute_data_hash`` in its
+   ``researcher_repository`` DNA, and the ``ExternalHash`` encoding). The two now live
+   in different repositories, so no CI run sees both. Any change to how ValiChord
+   hashes submitted data must be mirrored here, and the pinned real-conductor hash in
+   ``tests/test_protocol.py`` re-taken from a live ValiChord node.
 
 What it does
 ------------

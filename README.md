@@ -1,4 +1,19 @@
-# valichord_attestation
+# valichord-attestation
+
+> **What this is:** a Python library and an open format for attesting AI evaluation runs: a
+> verifiable commitment to a run's results and per-sample outputs, with challenge-response checks.
+>
+> **What this is not:** ValiChord itself. [ValiChord](https://github.com/ValiChord/ValiChord) is a
+> commit-reveal reproducibility protocol on Holochain, where independent validators seal their
+> results before anyone reveals. This library is a separate project. It is intended to become one
+> way to bring AI evaluation results into that protocol, and is not yet connected to it.
+>
+> Moved from `ValiChord/ValiChord/valichord_attestation` on 2026-10-19, with its full history.
+
+```bash
+pip install valichord-attestation
+```
+
 
 A lightweight verification layer for AI evaluation claims.
 
@@ -9,7 +24,7 @@ The system enables:
 - **Bounded-confidence fraud detection** — the verifier picks random samples; the probability of catching a misreport grows with the number of samples requested
 - **Deterministic cross-implementation comparison** — RFC 8785 (JCS) canonical encoding means two implementations in different languages produce byte-identical bundles for the same input
 
-v1 ships the format spec, the Merkle commitment, and selective disclosure. v1.1 adds the probabilistic challenge-response. v1.2 adds `Metric.filter` for multi-filter harnesses and `Bundle.meta` for provenance-aware comparison, together with a `content_hash` function for scientific-equivalence checks. **v2 (current, package 2.0.0, 2026-08-18)** changes only the Merkle construction — RFC 6962 style with domain separation ([spec](spec/attestation_format_v2.md)); `build_bundle` writes v2, and v1.x bundles still verify. No format version carries a signature. Future work extends this with hardware-attested execution and zero-knowledge faithfulness proofs. The probabilistic approach is a deliberate choice given current constraints on cryptographic proof systems — full rationale in [§11 of the spec](spec/attestation_format_v1.md#11-why-probabilistic-verification-instead-of-full-cryptographic-proofs).
+v1 ships the format spec, the Merkle commitment, and selective disclosure. v1.1 adds the probabilistic challenge-response. v1.2 adds `Metric.filter` for multi-filter harnesses and `Bundle.meta` for provenance-aware comparison, together with a `content_hash` function for scientific-equivalence checks. **v2 (current; package 2.0.0 on 2026-08-18, 2.1.0 adds `claim_hash` and verifier-side metric recomputation)** changes only the Merkle construction — RFC 6962 style with domain separation ([spec](spec/attestation_format_v2.md)); `build_bundle` writes v2, and v1.x bundles still verify. No format version carries a signature. Future work extends this with hardware-attested execution and zero-knowledge faithfulness proofs. The probabilistic approach is a deliberate choice given current constraints on cryptographic proof systems — full rationale in [§11 of the spec](spec/attestation_format_v1.md#11-why-probabilistic-verification-instead-of-full-cryptographic-proofs).
 
 The format is harness-agnostic. Adapters for specific harnesses are thin converters kept outside the core format; the package ships several in `valichord_attestation/adapters/` (Inspect AI logs, lm-evaluation-harness, AILuminate, W&B, pi sessions, and an Inspect Evals stub).
 
@@ -30,7 +45,7 @@ The two layers are deliberately separable. The format is harness-agnostic and su
 > The one existing link: a validator's `ValidationAttestation` has an optional
 > `reproduction_bundle_hash` field for the bundle's `claim_hash`, sealed into its commitment
 > (`valichord/shared_types/src/lib.rs`). Rules for any fuller integration are in
-> [`docs/PROTOCOL_INTEGRATION_BOUNDARY.md`](../docs/PROTOCOL_INTEGRATION_BOUNDARY.md).
+> [`docs/PROTOCOL_INTEGRATION_BOUNDARY.md`](https://github.com/ValiChord/ValiChord/blob/main/docs/PROTOCOL_INTEGRATION_BOUNDARY.md).
 
 ---
 
@@ -247,4 +262,4 @@ RFC 6962 §2.1 construction: Cüneyt Öztürk (Falsify OÜ)
 
 ## License
 
-Apache 2.0 — see [`LICENSE`](../LICENSE) at the repository root.
+Apache 2.0 — see [`LICENSE`](LICENSE) at the repository root.

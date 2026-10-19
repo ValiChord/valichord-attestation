@@ -1,18 +1,30 @@
 [build-system]
-requires = ["setuptools>=61"]
+requires = ["setuptools>=77"]  # PEP 639 license fields
 build-backend = "setuptools.build_meta"
 
 [project]
 name = "valichord-attestation"
-# Tracks the attestation format version: 1.2.0 wrote format v1.2, 2.0.0 writes v2.
-# The major bump is the Merkle construction change (spec/attestation_format_v2.md).
-version = "2.0.0"
+# The MAJOR version tracks the attestation format: 1.x wrote format v1.x, 2.x writes v2 (the
+# major bump was the Merkle construction change, spec/attestation_format_v2.md). Minor
+# versions add API without changing what bundles look like: 2.1.0 adds claim_hash and
+# verifier-side metric recomputation (metrics.py). Still writes format v2.
+version = "2.1.0"
 description = "Canonical attestation format for AI evaluation runs"
+readme = "README.md"
+authors = [{ name = "ValiChord" }]
+keywords = ["ai-evaluation", "attestation", "reproducibility", "merkle", "rfc8785"]
 requires-python = ">=3.10"
 license = "Apache-2.0"
+license-files = ["LICENSE"]
 dependencies = [
     "jcs>=0.2.1",
 ]
+
+[project.urls]
+Homepage = "https://github.com/ValiChord/valichord-attestation"
+Source = "https://github.com/ValiChord/valichord-attestation"
+Issues = "https://github.com/ValiChord/valichord-attestation/issues"
+"ValiChord protocol" = "https://github.com/ValiChord/ValiChord"
 
 [project.optional-dependencies]
 dev = [

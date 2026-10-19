@@ -74,7 +74,7 @@ __all__ = [
     "check_metric",
     "bind_disclosed_samples",
     "check_mean_metric",
-    # Protocol bridge - see docs/PROTOCOL_INTEGRATION_BOUNDARY.md
+    # Protocol bridge - see docs/PROTOCOL_INTEGRATION_BOUNDARY.md in ValiChord/ValiChord
     "submission_bytes",
     "data_hash",
     "data_hash_b64",
