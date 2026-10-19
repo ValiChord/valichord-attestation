@@ -1017,9 +1017,10 @@ def test_collect_metrics_non_dict_message_skipped():
 
 def test_git_head_returns_sha_in_real_git_repo():
     import os
-    # Use the repo root (parent of valichord_attestation/)
-    repo_root = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-    sha = _git_head(repo_root)
+    # Any folder inside the repository works. This used to climb three levels to the
+    # ValiChord root, which after the 2026-10-19 move is OUTSIDE this repository.
+    inside_repo = os.path.dirname(os.path.abspath(__file__))
+    sha = _git_head(inside_repo)
     # The workspace is a git repo so we should get a 40-char hex string
     assert sha is not None
     assert len(sha) == 40
